@@ -10,22 +10,24 @@ ScrollSmoother.create({
 });
 
 const parentElem = document.querySelector('.header');
-const snowElem = document.querySelector('.layers__layer_snow');
+const boatElem = document.querySelector('.layers__layer_boat');
+const birdsElem = document.querySelector('.layers__layer_birds');
 const animationSpeed = 0.05;
-const snowRatio = 20;
+const boatRatio = 40;
+const birdsRatio = 10;
 
 let posX = 0, posY = 0;
 let coordsXPercent = 0, coordsYPercent = 0;
 
 const setSnowAnimationByMouse = () => {
-    console.log('snow');
     const distanceX = coordsXPercent - posX;
     const distanceY = coordsYPercent - posY;
 
     posX = posX + (distanceX * animationSpeed);
     posY = posY + (distanceY * animationSpeed);
 
-    snowElem.style.cssText = `transform: translate(${posX / snowRatio}%, ${posY / snowRatio}%)`;
+    boatElem.style.cssText = `transform: translate(${posX / boatRatio}%, ${posY / boatRatio}%)`;
+    birdsElem.style.cssText = `transform: translate(${posX / birdsRatio}%, ${posY / birdsRatio}%)`;
 
     requestAnimationFrame(setSnowAnimationByMouse);
 }
@@ -33,7 +35,6 @@ const setSnowAnimationByMouse = () => {
 setSnowAnimationByMouse();
 
 parentElem.addEventListener('mousemove', event => {
-    console.log('snow');
     const parentWidth = parentElem.offsetWidth;
     const parentHeight = parentElem.offsetHeight;
 

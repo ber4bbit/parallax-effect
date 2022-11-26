@@ -1,15 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;700&display=swap');
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Raleway', sans-serif;
 }
 
 p {
     margin: 0;
 }
 
-.header {
+::-webkit-scrollbar {
+    width: 0;
+}
 
+.header {
+    position: relative;
+}
+
+.header__navigation {
+    position: fixed;
+    z-index: 10;
+    padding-top: 2rem;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.navigation__list {
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+}
+
+.navigation__list-item {
+    margin-right: 5rem;
+}
+
+.navigation__list-item:last-child {
+    margin-right: 0;
+}
+
+.navigation__list-item img {
+    width: 6rem;
+    margin-left: 20rem;
+}
+
+.navigation__list-item a {
+    text-decoration: none;
+    color: #9aafd6;
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    transition: all .3s;
+    border: 3px solid transparent;
+    border-radius: 12px;
+    padding: 6px 12px;
+}
+
+.navigation__list-item a:hover {
+    border: 3px solid white;
+    color: white;
+}
+
+.navigation__list-item a:focus {
+    border: 3px solid white;
+    color: white;
 }
 
 .header__layers {
@@ -37,30 +93,41 @@ p {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    transition: transform .75s cubic-bezier(.035, .5, 0, 1);
+    transition: transform .75s cubic-bezier(.08, .5, 0, 1);
     will-change: transform;
 }
 
 .layers__layer_back {
-    background-image: url(../assets/images/back-layer.png);
+    background-image: url(../assets/images/sunset-sea/sky.png);
     transform: translate3d(0, calc(var(--scrollTop) / 1.5), 0);
+    height: 100vh;
 }
 
-.layers__layer_middle {
-    background-image: url(../assets/images/middle-layer.png);
-    transform: translate3d(0, calc(var(--scrollTop) / 3.5), 0);
+.layers__layer_sun {
+    background-image: url(../assets/images/sunset-sea/sun.png);
+    transform: translate3d(0, calc(var(--scrollTop) / 2), 0);
     z-index: 2;
 }
 
+.layers__layer_sun-lensFlare {
+    background-image: url(../assets/images/sunset-sea/sun-lensflare.png);
+    transform: translate3d(0, calc(var(--scrollTop) / 3), 0);
+    z-index: 3;
+}
+
 .layers__layer_front {
-    background-image: url(../assets/images/front-layer.png);
+    background-image: url(../assets/images/sunset-sea/sea.png);
     transform: translate3d(0, calc(var(--scrollTop) / 10), 0);
     z-index: 2;
 }
 
-.layers__layer_snow {
-    background-image: url(../assets/images/snow.png);
+.layers__layer_boat {
+    background-image: url(../assets/images/sunset-sea/boat.png);
     z-index: 2;
+}
+
+.layers__layer_birds {
+    background-image: url(../assets/images/sunset-sea/birds.png);
 }
 
 .main {
